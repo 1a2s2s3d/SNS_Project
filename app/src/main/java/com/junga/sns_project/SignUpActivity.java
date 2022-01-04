@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity {
-    private static final String TAG = "SignActivity";
     private FirebaseAuth mAuth;
 
     @Override
@@ -32,25 +31,22 @@ public class SignUpActivity extends AppCompatActivity {
         findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+    @Override public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
 
-    View.OnClickListener onClickListener = new View.OnClickListener(){
-        @Override
-        public void onClick(View view) {
-            switch(view.getId()){
-                case R.id. signUpButton:
+    View.OnClickListener onClickListener = (v) ->{
+            switch(v.getId()){
+                case R.id.signUpButton:
                     signUp();
                     break;
-                case R.id. gotoLoginButton:
-                    startLoginActivity();
+                case R.id.gotoLoginButton:
+                    myStartActivity(LoginActivity.class);
                     break;
             }
-        }
     };
 
     private void signUp(){
@@ -65,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("회원가입에 성공하였습니다.");
+                                myStartActivity(MainActivity.class);
                             } else {
                                 if(task.getException() != null){
                                     startToast(task.getException().toString());
@@ -83,8 +80,9 @@ public class SignUpActivity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void startLoginActivity(){
-        Intent intent = new Intent(this,LoginActivity.class);
+    private void myStartActivity(Class c){
+        Intent intent = new Intent(this,c);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 }
