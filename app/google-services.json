@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1031510538264",
+    "project_id": "sns-project-5fc18",
+    "storage_bucket": "sns-project-5fc18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031510538264:android:603b1d0c096675a1f96b6d",
+        "android_client_info": {
+          "package_name": "com.junga.sns_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031510538264-m0udbtkbqhvvve00b24gcp9b01eonhl8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAppRRa52fE59Igd1dGZD9xzTSw8BUsEOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031510538264-m0udbtkbqhvvve00b24gcp9b01eonhl8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
