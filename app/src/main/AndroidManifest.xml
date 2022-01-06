@@ -4,8 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SNS_Project">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,19 +26,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity" android:exported="true">
+            android:name=".activity.LoginActivity" android:exported="true">
         </activity>
         <activity
-            android:name=".SignUpActivity" android:exported="true">
+            android:name=".activity.SignUpActivity" android:exported="true">
         </activity>
         <activity
-            android:name=".PasswordResetActivity" android:exported="true">
+            android:name=".activity.PasswordResetActivity" android:exported="true">
         </activity>
         <activity
-            android:name=".MemberInitActivity" android:exported="true">
+            android:name=".activity.MemberInitActivity" android:exported="true">
         </activity>
         <activity
-            android:name=".CameraActivity" android:exported="true">
+            android:name=".activity.CameraActivity" android:exported="true">
+        </activity>
+        <activity
+            android:name=".activity.GalleryActivity" android:exported="true">
         </activity>
     </application>
 
