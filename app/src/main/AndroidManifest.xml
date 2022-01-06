@@ -43,6 +43,12 @@
         <activity
             android:name=".activity.GalleryActivity" android:exported="true">
         </activity>
+        <activity
+            android:name=".activity.BasicActivity" android:exported="true">
+        </activity>
+        <activity
+            android:name=".activity.WritePostActivity" android:exported="true">
+        </activity>
     </application>
 
 </manifest>

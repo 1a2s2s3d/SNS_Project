@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,7 +18,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.junga.sns_project.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BasicActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -31,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         if(user == null){
             myStartActivity(SignUpActivity.class);
         }else{
-            myStartActivity(MemberInitActivity.class);
-
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             DocumentReference docRef = db.collection("users").document(user.getUid());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -54,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
         findViewById(R.id.logoutButton).setOnClickListener(onClickListener);
+        findViewById(R.id.floatingActionButton).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener= new View.OnClickListener(){
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.logoutButton:
                     FirebaseAuth.getInstance().signOut();
                     myStartActivity(SignUpActivity.class);
+                    break;
+                case R.id.floatingActionButton:
+                    myStartActivity(WritePostActivity.class);
                     break;
             }
         }
